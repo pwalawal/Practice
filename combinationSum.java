@@ -26,13 +26,14 @@ public class Solution {
             result.add(new ArrayList<Integer>(al));
             return ;
         }
+        if(target<0)
+        {
+                return;
+        }
         
         for(int i=start;i<candidates.length;i++)
         {
-            if(candidates[i]>target)
-            {
-                return;
-            }
+            
             
             al.add(candidates[i]);
             combineSum(i,candidates,target-candidates[i],al,result);
