@@ -32,10 +32,10 @@ public class Solution {
             perm=perm*i;
         }
         
-        for(int i=0;i<n;i++)
+        for(int i=n;i>=1;i--)
         {
             
-            perm=perm/(n-i);
+            perm=perm/(i);
             //calculating which index elemnt will start for given kth position
             index=k/perm;
             //add to string
