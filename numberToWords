@@ -1,0 +1,35 @@
+class Solution {
+    
+    String[] under20=new String[]{"","One","Two", "Three", "Four","Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen", "Twenty" };
+    
+    String[] under100=new String[]{"","Ten","Twenty","Thirty","Forty","Fifty","Sixty","Seventy","Eighty","Ninety","Hundred"}; 
+    
+    public String numberToWords(int num) {
+     
+        if(num==0){
+            return "Zero";
+        }
+        
+        return helper(num);
+    }
+    
+    public String helper(int num){
+        
+        String result="";
+        
+        if(num<20){
+            result= under20[num];
+        }else if(num<100){
+            result=under100[num/10]+" "+under20[num%10];
+        }else if(num<1000){
+            result= under20[num/100]+" Hundred "+ helper(num%100);
+        }else if(num<1000000){
+            result=  helper(num/1000)+" Thousand "+ helper(num%1000);
+        }else if(num<1000000000){
+            result=  helper(num/1000000)+" Million "+ helper(num%1000000);
+        }else result= helper(num/1000000000)+" Billion "+ helper(num%1000000000);
+        return result.trim();
+        
+        
+    }
+}
